@@ -1,0 +1,707 @@
+/* Import the Poppins font from Google Fonts for styling text */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+/* Reset margin, padding, and box-sizing for all elements to ensure consistency */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Apply the Poppins font to the entire page */
+body {
+   font-family: "Poppins", sans-serif; /* Use Poppins font for text */
+   background-color: var(--scroll-color, whitesmoke); /* Default background color, will change with scroll */
+   transition: background-color 0.3s ease; /* Smooth transition when background color changes */
+   background: linear-gradient(to bottom, whitesmoke, peachpuff, lavender); /* Gradient background from top to bottom */
+}
+
+/* Enable smooth scrolling when navigating through the page */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Default style for paragraphs */
+p {
+    color: rgb(85, 85, 85); /* Neutral gray text color */
+}
+
+/* Add smooth transitions for buttons */
+.btn {
+    transition: all 300ms ease; /* Smooth animations for all button changes */
+}
+
+/* ===== WEBSITE NAVIGATION ===== */
+
+#website__nav .logo {
+    font-size: 2rem;
+}
+
+/* Make navigation items and links use Flexbox for layout */
+nav, .nav__link {
+    display: flex;
+}
+
+/* Style the main navigation bar */
+nav {
+    justify-content: space-around; /* Space out items evenly */
+    align-items: center; /* Vertically center items */
+    height: 17vh; /* Set navigation height */
+}
+
+/* Style the list of navigation links */
+.nav__link {
+    gap: 2rem; /* Space between links */
+    list-style: none; /* Remove bullet points */
+    font-size: 1.5rem; /* Increase text size */
+}
+
+/* Add space below specific icons in navigation */
+.fa-solid.fa-briefcase {
+    margin-bottom: 8px; /* Slight gap below the icon */
+}
+
+/* Style for navigation links */
+.nav__link a {
+    color: black; /* Default text color */
+    text-decoration: none; /* Remove underline */
+    position: relative; /* Prepare for adding an effect below */
+    transition: color 0.3s ease; /* Smooth hover effect for text color */
+}
+
+/* Add an underline animation to links on hover */
+.nav__link a::after {
+    content: ''; /* Add a hidden line below the text */
+    position: absolute;
+    left: 0; /* Start the line from the left edge */
+    bottom: -2px; /* Place it slightly below the text */
+    width: 100%; /* Match the width of the text */
+    height: 2px; /* Set the thickness of the underline */
+    background: transparent; /* Keep it invisible initially */
+    transform: scaleX(0); /* Make it shrink to zero */
+    transform-origin: center; /* Expand the line from the center */
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth effects */
+}
+
+/* Change link color and show underline on hover */
+.nav__link a:hover {
+    color: #007BFF; /* Change text to a blue color */
+}
+.nav__link a:hover::after {
+    transform: scaleX(1); /* Expand the underline */
+    background: #007BFF; /* Match the underline color to the text */
+}
+
+/* ===== HAMBURGER MENU ===== */
+
+/* Hide the default navigation menu (for small screens) */
+#hamburger__nav {
+    display: none;
+}
+
+/* Style the hamburger menu container */
+.hamburger__menu {
+    position: relative;
+    display: inline-block; /* Make it inline but block-like for positioning */
+}
+
+/* Style the hamburger icon */
+.hamburger__icon {
+    display: flex; /* Stack lines vertically */
+    flex-direction: column;
+    justify-content: space-between; /* Even spacing between lines */
+    height: 24px; /* Total height of the icon */
+    width: 30px; /* Width of the icon */
+    cursor: pointer; /* Show pointer on hover */
+}
+
+/* Style the individual lines of the hamburger icon */
+.hamburger__icon span {
+    width: 100%; /* Full width of the icon */
+    height: 3px; /* Thickness of each line */
+    background-color: black; /* Black color for the lines */
+    border-radius: 2px; /* Rounded edges */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth animations */
+}
+
+/* Style the dropdown menu when opened */
+.menu__link {
+    position: absolute; /* Position it below the icon */
+    top: calc(100% + 10px); /* Place slightly below the hamburger icon */
+    right: 0; /* Align it to the right edge */
+    background-color: white; /* White background for the menu */
+    width: 200px; /* Fixed width for the dropdown */
+    max-height: 0; /* Initially hidden */
+    overflow: hidden; /* Hide overflowing content */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    border-radius: 4px; /* Rounded corners */
+    transition: max-height 0.3s ease, opacity 0.3s ease; /* Smooth open/close animation */
+    opacity: 0; /* Fully invisible by default */
+    display: none; /* Hide by default */
+}
+
+/* Style individual links in the dropdown menu */
+.menu__link a {
+    display: block; /* Full-width clickable area */
+    padding: 12px 15px; /* Add padding for spacing */
+    text-align: left; /* Align text to the left */
+    font-size: 1rem; /* Set a readable text size */
+    color: black; /* Default text color */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease, background-color 0.3s ease; /* Smooth hover effects */
+}
+
+/* Highlight links on hover */
+.menu__link a:hover {
+    color: white; /* White text color */
+    background-color: black; /* Black background for contrast */
+}
+
+/* Reveal the menu when the "open" class is added */
+.menu__link.open {
+    max-height: 300px; /* Expand to show content */
+    opacity: 1; /* Make it fully visible */
+    display: block; /* Show when 'open' class is added */
+}
+
+/* ===== HAMBURGER MENU ICON ANIMATION ===== */
+
+/* When the hamburger menu is open, rotate the first line to form an "X" shape */
+.hamburger__icon.open span:first-child {
+    transform: rotate(45deg) translate(10px, 5px); /* Rotate and shift position */
+}
+
+/* When the menu is open, hide the middle line */
+.hamburger__icon.open span:nth-child(2) {
+    opacity: 0; /* Make it invisible */
+}
+
+/* When the menu is open, rotate the last line to complete the "X" */
+.hamburger__icon.open span:last-child {
+    transform: rotate(-45deg) translate(10px, -5px); /* Rotate and shift position */
+}
+
+/* Reset styles for the first line when the menu is closed */
+.hamburger__icon span:first-child {
+    transform: none; /* No rotation or shifting */
+    opacity: 1; /* Make sure it is visible */
+}
+
+/* ===== HERO/MAIN SECTION ===== */
+
+/* Style the main section (hero area) */
+section {
+    padding-top: 4vh; /* Add spacing at the top */
+    height: 96vh; /* Set section height to almost the full viewport */
+    margin: 0 10rem; /* Add horizontal margins for spacing */
+    box-sizing: border-box; /* Include padding in the total height/width */
+    min-height: fit-content; /* Ensure it doesn't shrink too much */
+}
+
+/* Container for elements inside the section */
+.section__container {
+    display: flex; /* Arrange items horizontally */
+    gap: 4rem; /* Add space between items */
+    height: 80%; /* Occupy 80% of the section's height */
+}
+
+/* ===== PROFILE SECTION ===== */
+
+/* Layout for the profile section */
+#profile {
+    display: flex; /* Arrange elements horizontally */
+    justify-content: center; /* Center all items horizontally */
+    gap: 5rem; /* Space between items */
+    height: 80vh; /* Set section height */
+}
+
+/* Container for profile picture */
+.section__pic--container {
+    display: flex; /* Center content */
+    height: 400px; /* Set container height */
+    width: 400px; /* Set container width */
+    margin: auto 0; /* Center vertically */
+}
+
+/* Style for the main profile picture */
+.section__pic--container .main__pic {
+    width: 350px; /* Set picture width */
+    height: 450px; /* Set picture height */
+    border-radius: 50%; /* Make it circular */
+    object-fit: cover; /* Ensure the image fits without distortion */
+}
+
+/* Text section in the profile */
+.section__text {
+    align-self: center; /* Center vertically */
+    text-align: center; /* Center text */
+}
+
+/* Bold text for paragraphs in the profile */
+.section__text p {
+    font-weight: 600; /* Set boldness */
+    cursor: default; /* Prevent clicking the text */
+}
+
+/* Center-align and enlarge a specific paragraph */
+.section__text--p0 {
+    text-align: center;
+    font-size: larger; /* Make text larger */
+}
+
+/* Another paragraph style in the profile */
+.section__text--p1 {
+    text-align: center; /* Center-align */
+    cursor: default; /* Non-clickable */
+}
+
+/* Large text size for an important profile section */
+.section__text--p2 {
+    font-size: 1.75rem; /* Bigger font */
+    margin-bottom: 1rem; /* Add space below */
+}
+
+/* Style for the title in the profile section */
+.title {
+    font-size: 3rem; /* Large font size */
+    text-align: center; /* Center-align text */
+    cursor: default; /* Non-clickable */
+}
+
+/* ===== SOCIAL MEDIA ICONS ===== */
+
+/* Container for all social media icons */
+#socials__container {
+    display: flex; /* Arrange icons horizontally */
+    justify-content: center; /* Center icons */
+    gap: 1rem; /* Space between icons */
+    margin-top: 1rem; /* Space above icons */
+}
+
+/* Style for individual social media icons */
+.social__icon {
+    font-size: 2.5rem; /* Set icon size */
+    color: #333; /* Default color */
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth hover effects */
+    cursor: pointer; /* Show pointer on hover */
+    position: relative; /* For positioning the label below */
+    display: inline-block; /* Keep icons inline */
+}
+
+/* Add a hidden label below each icon */
+.social__icon::after {
+    content: ''; /* Placeholder for the label */
+    position: absolute; /* Position relative to the icon */
+    bottom: -1.5rem; /* Position label below the icon */
+    left: 50%; /* Center label horizontally */
+    transform: translateX(-50%); /* Align label perfectly */
+    opacity: 0; /* Hide by default */
+    color: #333; /* Label color */
+    font-size: 0.8rem; /* Small font for labels */
+    font-family: "Poppins", sans-serif; /* Match site font */
+    white-space: nowrap; /* Prevent text wrapping */
+    transition: opacity 0.3s ease; /* Smooth fade-in */
+}
+
+/* Enlarge icon and show label on hover */
+.social__icon:hover {
+    transform: scale(1.2); /* Slightly increase size */
+    color: #0077b5; /* Default hover color */
+}
+
+/* Show label on hover */
+.social__icon:hover::after {
+    opacity: 1; /* Make label visible */
+}
+
+/* ===== SOCIAL MEDIA ICONS ===== */
+
+/* Change color to LinkedIn's official blue when hovered */
+#socials__container .fa-linkedin:hover {
+    color: #0077b5; /* LinkedIn's blue color */
+}
+
+/* Change color to GitHub's official black when hovered */
+.fa-github:hover {
+    color: #000; /* GitHub's black color */
+}
+
+/* Add a label "LinkedIn" under the LinkedIn icon */
+#socials__container .fa-linkedin::after {
+    content: 'LinkedIn'; /* Label for LinkedIn icon */
+}
+
+/* Add a label "GitHub" under the GitHub icon */
+.fa-github::after {
+    content: 'GitHub'; /* Label for GitHub icon */
+}
+
+/* ===== ICONS SECTION ===== */
+
+/* Set a specific height for checkmark icons */
+.check__icon {
+    height: 2rem; /* Set height */
+}
+
+/* Set a specific height for experience icons */
+.experience__icon {
+    height: 2rem; /* Set height */
+}
+
+/* Set a larger font size for graduation icon */
+.graduation__icon {
+    height: 2rem;
+    font-size: larger; /* Increase font size */
+}
+
+/* ===== BUTTONS SECTION ===== */
+
+/* Container for buttons, arranged horizontally with space in between */
+.btn__container {
+    display: flex;
+    justify-content: center; /* Center buttons */
+    gap: 1rem; /* Space between buttons */
+}
+
+/* General button styling */
+.btn {
+    font-weight: 600; /* Make button text bold */
+    transition: all 300ms ease-in-out; /* Smooth transition for hover effects */
+    padding: 1rem; /* Add padding inside the button */
+    width: 8rem; /* Set a consistent width */
+    border-radius: 2rem; /* Round the button corners */
+    position: relative; /* Needed for the pseudo-element effects */
+    overflow: hidden; /* Hide any content that goes outside button */
+}
+
+/* Border style for the first and second buttons */
+.btn__color--1, .btn__color--2 {
+    border: rgb(53, 53, 53) 0.1rem solid; /* Dark border color */
+}
+
+/* Button hover effects */
+.btn__color--1:hover, 
+.btn__color--2:hover {
+    cursor: pointer; /* Show pointer cursor on hover */
+    transform: scale(1.05); /* Slightly enlarge button */
+}
+
+/* Change background and text color on hover */
+.btn__color--1, 
+.btn__color--2:hover {
+    background: rgb(53, 53, 53); /* Dark background color */
+    color: whitesmoke; /* Change text color to white */
+}
+
+/* Special hover effect for button 1 */
+.btn__color--1:hover {
+    background: rgb(0, 0, 0); /* Darker background on hover */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+}
+
+/* Button 2 has a transparent background by default */
+.btn__color--2 {
+    background: none; /* Transparent background */
+}
+
+/* Button 2 hover effects with gradient background */
+.btn__color--2:hover {
+    border: rgb(255, 255, 255) 0.1rem solid; /* White border on hover */
+    background: linear-gradient(90deg, rgba(53,53,53,1) 0%, rgba(0,0,0,1) 100%); /* Gradient background */
+}
+
+/* Add a shiny effect to the buttons using a pseudo-element */
+.btn::after {
+    content: ''; /* Create a pseudo-element */
+    position: absolute; /* Position it inside the button */
+    top: 0; /* Align at the top */
+    left: -100%; /* Start off-screen to the left */
+    width: 100%; /* Cover entire button width */
+    height: 100%; /* Cover entire button height */
+    background: rgba(255, 255, 255, 0.1); /* Light, shiny overlay */
+    transform: skewX(-20deg); /* Slant the effect */
+    transition: left 300ms ease-in-out; /* Smooth transition */
+    z-index: 1; /* Make sure it's on top of the button */
+}
+
+/* Move the shiny effect across the button on hover */
+.btn:hover::after {
+    left: 100%; /* Move the shine to the right */
+}
+
+/* ===== ABOUT SECTION ===== */
+
+/* General about section style */
+#about {
+    position: relative; /* Allows positioning of other elements */
+    cursor: default; /* Default cursor style */
+}
+
+/* Layout for the about section */
+.about__container {
+    display: flex; /* Arrange items in a row */
+    gap: 2rem; /* Add space between items */
+    margin-bottom: 2rem; /* Add space below the section */
+    margin-top: 2rem; /* Add space above the section */
+}
+
+/* Container for details in the about section */
+.about__details--container {
+    display: flex; /* Arrange items in a column */
+    justify-content: center; /* Center items */
+    flex-direction: column; /* Arrange vertically */
+}
+
+/* Style for profile picture in the about section */
+.about__pic {
+    border-radius: 2rem; /* Rounded corners for the picture */
+}
+
+/* Container for text details in the about section */
+.details__container {
+    padding: 1.5rem; /* Add padding around text */
+    flex: 1; /* Allow the container to expand */
+    background: white; /* Set background color */
+    border-radius: 2rem; /* Rounded corners */
+    border: rgb(53, 53, 53) 0.1rem solid; /* Border color */
+    border-color: rgb(163, 163, 163); /* Lighter border color */
+    text-align: center; /* Center text inside the container */
+}
+
+/* Special styling for second paragraph in details container */
+.details__container--2 p {
+    color: black; /* Text color */
+    font-weight: bold; /* Bold text */
+    font-size: 15px; /* Set font size */
+}
+
+/* Text alignment for paragraphs */
+.text__container p {
+    text-align: justify; /* Justify text for even spacing */
+}
+
+/* ===== EXPERIENCE SECTION ===== */
+
+/* General experience section style */
+#experience {
+    position: relative; /* Allow for child elements to be positioned */
+    cursor: default; /* Default cursor style */
+}
+
+/* Style for subtitle in experience section */
+.experience__subtitle {
+    color: rgb(85, 85, 85); /* Set subtitle color */
+    font-weight: 600; /* Make subtitle bold */
+    font-size: 1.75rem; /* Larger font size */
+    margin-bottom: 2rem; /* Add space below subtitle */
+}
+
+/* Container for experience details */
+.experience__details--container {
+    display: flex; /* Arrange items in a column */
+    justify-content: center; /* Center items */
+    flex-direction: column; /* Arrange vertically */
+}
+
+/* Layout for articles inside the experience section */
+.article__container {
+    display: flex; /* Arrange items in a row */
+    text-align: initial; /* Align text to the left */
+    flex-wrap: wrap; /* Allow items to wrap to new lines */
+    flex-direction: row; /* Arrange in a row */
+    gap: 2.5rem; /* Add space between items */
+    justify-content: space-around; /* Space out items evenly */
+}
+
+/* Style for individual articles */
+article {
+    display: flex; /* Arrange article elements in a row */
+    width: 10rem; /* Set width of the article */
+    justify-content: space-around; /* Space out items inside the article */
+    gap: 0.5rem; /* Add small space between elements */
+}
+
+/* Style for icons inside articles */
+article .icon {
+    cursor: default; /* Default cursor for non-clickable icons */
+}
+
+/* Style for article headings */
+article h3 {
+    margin-right: 5rem; /* Add space to the right of the heading */
+}
+
+/* ===== PROJECTS SECTION ===== */
+
+/* Style for the projects container */
+#projects {
+    position: relative; /* Allows positioning of child elements */
+}
+
+.project__details--container,
+.project__details--container--2,
+.project__details--container--3 {
+    padding: 1.5rem; /* Add padding around text */
+    flex: 1; /* Allow the container to expand */
+    background: white; /* Set background color */
+    border-radius: 2rem; /* Rounded corners */
+    border: rgb(53, 53, 53) 0.1rem solid; /* Border color */
+    border-color: rgb(163, 163, 163); /* Lighter border color */
+    text-align: center; /* Center text inside the container */
+    height: 60vh;
+    transition: transform 0.3s ease; /* Smooth transition */
+}
+
+.project__details--container:hover,
+.project__details--container--2:hover,
+.project__details--container--3:hover {
+    transform: scale(1.06); /* Slight zoom */
+  }
+
+/* Container for project images, with background and border color */
+.project__details--container.color__container {
+    border-image: linear-gradient(to right, gray, black) 1; /* Apply a gradient border */
+    border-width: 13px; /* Increases the border thickness */
+    border-style: solid; /* Ensures the border is visible */
+    background-image: url('./assets/project-container-1.jpg'); /* Path to your image */
+    background-size: cover; /* Ensures the image covers the entire container */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+}
+
+.project__details--container--2.color__container {
+    border-image: linear-gradient(to right, gray, black) 1; /* Apply a gradient border */
+    border-width: 13px; /* Increases the border thickness */
+    border-style: solid; /* Ensures the border is visible */
+    background-image: url('./assets/project-container-2.jpg'); /* Path to your image */
+    background-size: cover; /* Ensures the image covers the entire container */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+}
+
+.project__details--container--3.color__container {
+    border-image: linear-gradient(to right, gray, black) 1; /* Apply a gradient border */
+    border-width: 13px; /* Increases the border thickness */
+    border-style: solid; /* Ensures the border is visible */
+    background-image: url('./assets/project-container-3.jpg'); /* Path to your image */
+    background-size: cover; /* Ensures the image covers the entire container */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+}
+/* Styling for project images */
+.project__img {
+    border-radius: 2rem; /* Rounded corners for images */
+    width: 70%; /* Image takes up 90% of the container's width */
+    height: 90%; /* Image takes up 90% of the container's height */
+}
+
+/* Styling for project title text */
+.project__title {
+    margin: 1rem; /* Adds space around the title */
+    color: whitesmoke; /* Sets the text color to black */
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4); /* Subtle shadow for contrast */
+    font-weight: 900;
+}
+
+/* Styling for project buttons */
+.project__btn {
+    color: black; /* Button text color */
+    border-color: rgb(50, 50, 50); /* A lighter version of black */
+    background-color: whitesmoke;
+    margin-top: 13rem;
+}
+
+/* ===== CONTACT SECTION ===== */
+
+/* Layout for the contact section */
+#contact {
+    display: flex; /* Use flexbox for layout */
+    justify-content: center; /* Centers the content horizontally */
+    flex-direction: column; /* Arranges content vertically */
+    height: 70vh; /* Sets the height to 70% of the viewport height */
+}
+
+/* Container for the upper part of the contact info */
+.contact__info__upper--container {
+    display: flex; /* Use flexbox to arrange items */
+    justify-content: center; /* Centers the content */
+    margin: 2rem auto; /* Adds space around the container */
+    padding: 0.5rem; /* Adds padding inside the container */
+}
+
+/* Container for individual contact info items */
+.contact__info--container {
+    display: flex; /* Use flexbox to arrange items */
+    align-items: center; /* Centers items vertically */
+    justify-content: center; /* Centers items horizontally */
+    gap: 0.5rem; /* Adds space between items */
+    margin: 1rem; /* Adds space around the container */
+}
+
+/* Styling for paragraphs inside the contact info container */
+.contact__info--container p {
+    font-size: larger; /* Increases font size */
+}
+
+/* Styling for links inside the contact info container */
+.contact__info--container a {
+    text-decoration: none; /* Removes the underline from the link */
+    color: black; /* Sets the initial color to black */
+    transition: color 0.3s ease; /* Adds smooth color transition on hover */
+}
+
+/* Hover effect for the contact links */
+.contact__info--container a:hover {
+    color: #007BFF; /* Changes the color to blue when hovered */
+}
+
+/* Styling for email icon */
+.contact__info--container .email__icon {
+    font-size: 1.7rem; /* Sets the icon size */
+}
+
+/* Styling for LinkedIn icon */
+.contact__info--container .linkedin__icon {
+    font-size: 1.7rem; /* Sets the icon size */
+}
+
+/* Styling for Viber icon */
+.contact__info--container .viber__icon {
+    font-size: 1.7rem; /* Sets the icon size */
+}
+
+/* ===== FOOTER SECTION ===== */
+
+/* Footer container style */
+footer {
+    height: 10vh; /* Sets the footer height to 10% of the viewport height */
+    background-color: rgb(70, 68, 68); /* darker gray background color */
+}
+
+/* Styling for text inside the footer */
+footer p {
+    color: white; /* Sets text color to white */
+    text-align: center; /* Centers the text */
+    padding: 25px; /* Adds space inside the footer */
+    cursor: default; /* Sets the cursor to default (no pointer) */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

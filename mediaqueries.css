@@ -1,0 +1,343 @@
+@media screen and (max-width: 1400px) {
+    #profile {
+        height: 83vh;
+        margin-bottom: 6rem;
+    }
+    #projects {
+        top: -150px;
+    }
+    #about {
+        top: 50px;
+    }
+    .about__container {
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    #website__nav {
+        display: none;
+    }
+    #hamburger__nav {
+        display: flex;
+    }
+    #experience {
+        top: 300px;
+    }
+    #projects {
+        top: 400px;
+    }
+    #contact {
+        position: relative;
+        top: 450px;
+    }
+    #experience, 
+    .experience__details--container {
+        margin-top: 2rem;    
+    }
+    #profile, 
+    .section__container {
+        display: block;
+    }
+    .section__text {
+        position: relative; /* Enables adjustment within its container */
+        top: 160px; /* Moves the text downward */
+    }
+    section, 
+    .section__container {
+        height: fit-content;
+    }
+    section {
+        margin: 0 5%;
+    }
+    .section__pic--container {
+        width: 275px;
+        height: 275px;
+        margin: 0 auto 2rem;
+    }
+    #about {
+        top: 200px;
+    }
+    .about__pic{
+        margin-left: 2.5rem;
+    }
+    .about__container {
+        margin-top: 0;
+    }
+    footer {
+        position: relative;
+        top: 500px;
+    }
+}
+
+@media screen and (max-width: 1120px) {
+    .logo {
+        font-size: 30px;
+    }
+    .project__btn {
+        top: -50px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #about {
+        top: 0;
+    }
+    #experience {
+        top: 150px;
+    }
+    #projects {
+        top: 300px;
+    }
+    #contact {
+        top: 100;
+    }
+    #contact,
+    footer {
+        height: 40vh;
+    }
+    #profile {
+        height: 83vh;
+        margin-bottom: 0;
+    }
+    .section__pic--container .main__pic { 
+        width: 200px;
+        height: 250px;
+        margin-top: -50px;
+    }
+    article {
+        font-size: 1rem;
+    }
+    footer {
+        height: auto;
+    }
+    .section__text {
+        position: relative; /* Enables adjustment within its container */
+        top: 0; /* Moves the text downward */
+    }
+    .about__pic{
+        margin-left: 0;
+    }
+    .about__container, 
+    .contact__info__upper--container, 
+    .btn__container {
+        flex-wrap: wrap;
+    }
+    .contact__info--container {
+        margin: 0;
+    }
+    .contact__info--container p, 
+    .nav__link li a {
+        font-size: 1rem;
+    }
+    .experience__subtitle {
+        font-size: 1.25rem;
+    }
+    .logo {
+        font-size: 1.5rem;
+    }
+    .nav__link {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+
+    .section__pic--container {
+        width: auto;
+        height: 46vw;
+        justify-content: center;
+    }
+    .section__text--p2 {
+        font-size: 1.25rem;
+    }
+    .title {
+        font-size: 2rem;
+    }
+    .text__container {
+        text-align: justify;
+    }  
+    .project__btn {
+        width: 70px;
+        height: 50px;
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    .section__text {
+        top: 0;
+    }
+    #about {
+        top: 0;
+    }
+
+    #experience {
+        top: -10px;
+    }
+    #projects {
+        top: 100px;
+    }
+    .project__btn {
+        width: 70px;
+        height: 50px;
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .section__text {
+        top: 0;
+    }
+    #about {
+        top: 100px;
+    }
+
+    #experience {
+        top: 100px;
+    }
+    #projects {
+        top: 100px;
+    }
+    .project__btn {
+        width: 60px;
+        height: 50px;
+        font-size: 8px;
+    }
+
+}
+
+@media screen and (max-width: 502px) {
+    .section__text {
+        top: 0;
+    }
+    #about {
+        top: 100px;
+    }
+
+    #experience {
+        top: 100px;
+    }
+    #projects {
+        top: 100px;
+    }
+    .project__btn {
+        width: 60px;
+        height: 50px;
+        font-size: 8px;
+    }
+
+}
+
+@media screen and (max-width: 500px) {
+    .project__btn {
+        width: 55px;
+        height: 50px;
+        font-size: 8px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .section__text {
+        top: -10px;
+    }
+    #about {
+        top: 100px;
+    }
+
+    #experience {
+        top: 100px;
+    }
+    #projects {
+        top: 100px;
+    }
+    .project__btn {
+        width: 20px;
+        height: 50px;
+        font-size: 8px;
+    }
+
+}
+
+@media screen and (max-width: 450px) {
+    .section__text {
+        top: 0;
+    }
+    #about {
+        top: 100px;
+    }
+
+    #experience {
+        top: 100px;
+    }
+    #projects {
+        top: 100px;
+    }
+    .project__btn {
+        width: 20px;
+        height: 30px;
+        font-size: 8px;
+    }
+
+}
+
+@media screen and (max-width: 400px) {
+    .section__text {
+        top: 0;
+    }
+    #about {
+        top: 100px;
+    }
+    #experience {
+        top: 100px;
+    }
+    #projects {
+        top: 300px;
+    }
+    .project__btn {
+        width: 70px;
+        height: 50px;
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .section__text {
+        top: 80px;
+    }
+    #about {
+        top: 100px;
+    }
+    #experience {
+        top: 100px;
+    }
+    #projects {
+        top: 150px;
+    }
+    #contact {
+        top: 250px;
+    }
+    .project__btn {
+        width: 70px;
+        height: 50px;
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width: 240px) {
+    .section__text {
+        top: 70px;
+    }
+    #about {
+        top: 200px;
+    }
+    #experience {
+        top: 250px;
+    }
+    #projects {
+        top: 300px;
+    }
+    #contact {
+        top: 350px;
+    }
+}
+
