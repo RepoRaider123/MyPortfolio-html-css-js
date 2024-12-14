@@ -75,5 +75,4 @@ window.addEventListener("scroll", () => {
    document.documentElement.style.setProperty("--scroll-color", gradient);
 });
 
-// Add a click event listener to the hamburger icon to toggle the menu visibility
-document.querySelector(".hamburger__icon").addEventListener("click", toggleMenu);
+
